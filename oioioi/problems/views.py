@@ -553,7 +553,7 @@ def problem_site_view(request, site_key):
     )
     difficulty_options = (
         tag.full_name
-        for tag in DifficultyTagLocalization.objects.filter(language=get_language())
+        for tag in DifficultyTagLocalization.objects.filter(language=get_language()).order_by('pk')
     )
     context = {
         'problem': problem,
