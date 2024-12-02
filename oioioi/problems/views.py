@@ -466,7 +466,7 @@ def problemset_generate_view(request, page_title, problems, view_type):
 
     difficulty_tags = DifficultyTag.objects.filter(
         name__in=request.GET.getlist('difficulty')
-    )
+    ).order_by('name')
 
     return TemplateResponse(
         request,
